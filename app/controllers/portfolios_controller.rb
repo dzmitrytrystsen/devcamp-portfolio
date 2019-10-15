@@ -1,6 +1,6 @@
 class PortfoliosController < ApplicationController
   def index
-    @portfolio_items = Portfolio.all
+    @portfolio_items = Portfolio.order(:id)
   end
 
   def new
@@ -20,7 +20,7 @@ class PortfoliosController < ApplicationController
   end
 
   def update
-    @portfolio_item = Portfolio.new(portfolio_params)
+    @portfolio_item = Portfolio.find(params[:id])
 
     respond_to do |format|
       if @portfolio_item.update(portfolio_params)
