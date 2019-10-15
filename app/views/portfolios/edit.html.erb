@@ -1,4 +1,4 @@
-<h1>Create new Portfolio Item</h1>
+<h1>Edit Portfolio Item</h1>
 
 <%= form_with(model: @portfolio_item, local: true) do |form| %>
   <div class="field">
@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.text_area :subtitle %>
   </div>
 
   <div class="actions">
