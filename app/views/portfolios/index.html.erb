@@ -3,9 +3,13 @@
 <%= link_to "Create new Item", new_portfolio_url %></br>
 
 <% @portfolio_items.each do |item| %>
-  <b><p><%= item.title %></p></b>
+  <b><%= link_to item.title, portfolio_path(item) %></b>
   <p><%= item.subtitle %></p>
   <p><%= item.body %></p>
-  <%= image_tag item.main_image unless item.main_image.nil?%>
-  <%= link_to "Edit", edit_portfolio_path(item.id) %></br>
+  <%= image_tag item.main_image unless item.main_image.nil?%></br>
+  <%= link_to "Show", portfolio_path(item) %></br>
+  <%= link_to "Edit", edit_portfolio_path(item) %></br>
+  <%= link_to 'Destroy', portfolio_path(item),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></br>
 <% end %>
