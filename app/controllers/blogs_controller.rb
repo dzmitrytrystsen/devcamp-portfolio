@@ -1,10 +1,10 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
 
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+    @blogs = Blog.order(:id)
   end
 
   # GET /blogs/1
@@ -54,6 +54,11 @@ class BlogsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to blogs_url, notice: 'Blog was successfully destroyed.' }
     end
+  end
+
+  def toggle_status
+    @blog.draft? ? @blog.published! : @blog.draft!
+    redirect_to blogs_url, notice: "'#{@blog.title}' blog status was updated!"
   end
 
   private
