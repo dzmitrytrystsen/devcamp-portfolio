@@ -12,7 +12,7 @@ class PortfoliosController < ApplicationController
 
     respond_to do |format|
       if @portfolio_item.save
-        format.html { redirect_to @portfolio_item, notice: 'Portfolio Item was successfully created.' }
+        format.html { redirect_to portfolio_show_path(@portfolio_item.id), notice: 'Portfolio Item was successfully created.' }
       else
         format.html { render :new }
       end
@@ -24,7 +24,7 @@ class PortfoliosController < ApplicationController
 
     respond_to do |format|
       if @portfolio_item.update(portfolio_params)
-        format.html { redirect_to @portfolio_item, notice: 'Portfolio Item was successfully updated.' }
+        format.html { redirect_to portfolio_show_path, notice: 'Portfolio Item was successfully updated.' }
       else
         format.html { render :edit }
       end
