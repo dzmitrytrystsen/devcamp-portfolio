@@ -3,6 +3,7 @@ class PagesController < ApplicationController
     @posts = Blog.all
     @skills = Skill.all
     @portfolio_items = Portfolio.all
+    @technologies = Technology.all
   end
 
   def about
