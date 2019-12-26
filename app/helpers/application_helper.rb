@@ -1,6 +1,6 @@
 module ApplicationHelper
   def login_helper
-    if current_user.is_a?(User)
+    if current_user.is_a?(User) && current_user.class != GuestUser
       link_to 'Logout', destroy_user_session_path, method: :delete
     else
       (link_to 'Sign Up', new_user_registration_path) +
