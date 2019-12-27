@@ -16,15 +16,27 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    
-    <%= render 'shared/application_nav' %>
+    <%= render 'shared/portfolio_nav' %>
+    <!-- start of main block -->
+    <main role="main">
 
-    <%= login_helper %>
+    <%= render 'shared/portfolio_masthead' %>
+
+    <!-- end of main block -->
+    </main>
 
     <%= yield %>
-    <hr>
+
+    <%= render 'shared/portfolio_footer' %>
+
+
+
+
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= render 'shared/application_nav' %>
+    <%= login_helper %>
     <%= source_helper('portfolio') %>
   </body>
 </html>
