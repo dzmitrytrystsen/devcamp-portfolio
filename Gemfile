@@ -55,3 +55,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'tristen_view_tool', git: 'https://github.com/dzmitrytrystsen/tristen_view_tool'
+
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
+
+gem 'kaminari', github: 'kaminari/kaminari'

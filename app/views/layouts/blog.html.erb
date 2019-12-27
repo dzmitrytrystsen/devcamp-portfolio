@@ -25,9 +25,7 @@
       <%= link_to "Create new Blog", new_blog_url, class: 'nav-link' if logged_in?(:site_admin)%></br>
       <p class="notice"><%= notice %></p>
 
-
       <main role="main" class="container">
-
       
       <!-- Start of row -->
         <div class="row">
@@ -35,18 +33,9 @@
 
           <%= render 'shared/blog_sidebar' %>
 
-          <!-- Start of footer -->
-          <footer class="blog-footer">
-            <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-            <p>
-              <a href="#">Back to top</a>
-            </p>
-          </footer>
-          <!-- End of footer -->
-
           <%= source_helper('blog') %>
         </div><!-- /.row -->
-
+        <%= render 'shared/blog_footer' %>
       </main><!-- /.container -->
     </div>
   </body>
