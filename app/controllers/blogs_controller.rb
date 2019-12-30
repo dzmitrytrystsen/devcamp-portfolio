@@ -6,7 +6,12 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.order(created_at: :desc).page(params[:page]).per(4)
+    if params[:topic_title]
+      @blogs = Topic.find_by(title: params[:topic_title]).blogs.page(params[:page]).per(4)
+    else
+      @blogs = Blog.order(created_at: :desc).page(params[:page]).per(4)
+    end
+
     @page_title = 'My Portfolio Blog'
   end
 
