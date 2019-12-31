@@ -1,6 +1,6 @@
-<div class='container'>
+<div class='container show'>
+  <p id="notice"><%= notice %></p>
   <div class='row'>
-    <p id="notice"><%= notice %></p>
     <div class='col-md-7'>
       <%= image_tag @portfolio_item.thumb_image unless @portfolio_item.thumb_image.nil? %>
     </div>
@@ -12,13 +12,13 @@
       <p><%= @portfolio_item.body %></p>
       <hr>
       <h3>Technologies used:</h3>
-      <ul>
+      <div>
         <% @portfolio_item.technologies.each do |technology| %>
-          <li>
-            <%= technology.name %>
-          </li>
+          <div>
+            <p><%= technology.name %></p>
+          </div>
         <% end %>
-      </ul>
+      </div>
       <%= link_to 'Edit', edit_portfolio_path(@portfolio_item) if logged_in?(:site_admin)%> |
       <%= link_to 'Back', portfolios_path %>
     </div>

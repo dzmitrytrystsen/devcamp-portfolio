@@ -17,19 +17,14 @@
 
   <body>
     <%= render 'shared/portfolio_nav' %>
-    <!-- start of main block -->
     <main role="main">
-
-    <%= render 'shared/portfolio_masthead' %>
-
-    <!-- end of main block -->
+    <%= render 'shared/portfolio_masthead' unless logged_in?(:site_admin)%>
     </main>
 
     <%= yield %>
 
     <%= render 'shared/portfolio_footer' %>
 
-    <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= source_helper('portfolio') %>
   </body>
