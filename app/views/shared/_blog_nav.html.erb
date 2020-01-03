@@ -6,30 +6,18 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <%= link_to "Home", root_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item active">
-        <%= link_to "About", about_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item active">
-        <%= link_to "Contact", contact_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item active">
-        <%= link_to "Blog", blogs_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item active">
-        <%= link_to "Portfolio", portfolios_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Profile
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to "Edit Profile", edit_user_registration_path, class: 'dropdown-item' if @current_user %>
-          <%= login_helper('dropdown-item') %>
-        </div>
-      </li>
+      <div class="row nav-item active">
+        <%= nav_helper('nav-link', 'span') %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Profile
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Edit Profile", edit_user_registration_path, class: 'dropdown-item' if @current_user %>
+            <%= login_helper('dropdown-item') %>
+          </div>
+        </li>
+      </div>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
