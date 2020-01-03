@@ -12,6 +12,12 @@ class BlogsController < ApplicationController
       @blogs = Blog.order(created_at: :desc).page(params[:page]).per(4)
     end
 
+    if params[:search]
+      @blogs = Blog.where('lower(title) LIKE ?', "%#{params[:search]}%".downcase).page(params[:page]).per(4)
+    else
+      @blogs = Blog.order(created_at: :desc).page(params[:page]).page(params[:page]).per(4)
+    end
+
     @page_title = 'My Portfolio Blog'
   end
 

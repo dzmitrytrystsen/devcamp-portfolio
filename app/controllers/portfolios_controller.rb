@@ -4,7 +4,7 @@ class PortfoliosController < ApplicationController
   layout 'portfolio'
 
   def index
-    @portfolio_items = Portfolio.order(:id)
+    @portfolio_items = Portfolio.by_position
   end
 
   def angular
