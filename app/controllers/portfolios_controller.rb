@@ -7,6 +7,14 @@ class PortfoliosController < ApplicationController
     @portfolio_items = Portfolio.by_position
   end
 
+  def sort
+    params[:order].each do |_key, value|
+      Portfolio.find(value[:id]).update(position: value[:position])
+    end
+
+    render body: nil
+  end
+
   def angular
     @angular_portfolio_items = Portfolio.angular
   end
@@ -51,7 +59,7 @@ class PortfoliosController < ApplicationController
       format.html { redirect_to portfolios_url, notice: 'Portfolio Item was successfully deleted.' }
     end
   end
-
+  
   private
 
   def portfolio_params

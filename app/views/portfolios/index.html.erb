@@ -1,6 +1,6 @@
 <div class="album py-5 bg-light">
   <div class="container">
-    
+    <p align="center" class="lead text-muted">Drag&Drop</p>
     <%= link_to "Create new Portfolio Item", new_portfolio_url if logged_in?(:site_admin) %>
     <div class="row sortable">
       <%= render partial: 'portfolio_item', collection: @portfolio_items %>
